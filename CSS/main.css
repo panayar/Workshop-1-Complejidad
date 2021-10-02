@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+  }
+
+body {
+    background: #7E5DE5;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    background: rgb(126,93,229);
+    background: linear-gradient(90deg, rgba(126,93,229,1) 21%, rgba(74,31,207,1) 100%);
+}
+
+.cont {
+    
+    display:flex;
+    align-items: center;
+    text-align: center;
+
+}
+
+.title{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: white;
+}
+
+.blueButton {
+    background-color: #4A1FCF;
+    width: 130px;
+    height: 45px;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    border: none;
+}
+
+.blueButton:hover {
+    background-color: #311195;
+    transition: 0.8s;
+}
+
+.pinkButton {
+    background-color: #EE2D88;
+    width: 130px;
+    height: 45px;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    border: none;
+}
+    
+.pinkButton:hover {
+    background-color: #E2207C;
+    transition: 0.8s;
+}
