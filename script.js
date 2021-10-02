@@ -34,12 +34,16 @@ dropArea.addEventListener("drop", (event) => {
   showFile();
 });
 
+
+input.addEventListener("change", leerArchivo)
+
 //Validacion de que el archivo sea txt 
 function showFile() {
   let fileType = file.type;
   let validExtensions = ["text/plain"];
   if (validExtensions.includes(fileType)) {
     dragText.textContent = "File uploaded successfully!";
+
   } else {
     alert("This is not an txt file");
     dropArea.classList.remove("active");
@@ -47,9 +51,6 @@ function showFile() {
   }
 }
 
-
-//Lectura y escritura del archivo 
-input.addEventListener('change', leerArchivo);
 
 function leerArchivo(e) {
   var archivo = e.target.files[0];
@@ -59,14 +60,11 @@ function leerArchivo(e) {
   var lector = new FileReader();
   lector.onload = function(e) {
     var contenido = e.target.result;
-    showText(contenido);
+    let textArea  = document.querySelector("#textArea");
+    textArea.innerHTML = contenido
   };
   lector.readAsText(archivo);
-  print(lector)
 }
 
-function showText(text) {
-  let textArea  = document.querySelector("#textArea");
-  textArea.innerHTML = text
-}
+
 
