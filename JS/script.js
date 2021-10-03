@@ -3,14 +3,13 @@ const dropArea = document.querySelector(".drag-area"),
   button = dropArea.querySelector("button"),
   input = dropArea.querySelector("input");
 let file;
-
+var text;
 
 button.onclick = () => {
   input.click();
-}
+};
 
-
-//funciones del drop file 
+//funciones del drop file
 input.addEventListener("change", function () {
   file = this.files[0];
   dropArea.classList.add("active");
@@ -34,24 +33,20 @@ dropArea.addEventListener("drop", (event) => {
   showFile();
 });
 
-input.addEventListener("change", leerArchivo)
+input.addEventListener("change", leerArchivo);
 
-
-//Validacion de que el archivo sea txt 
+//Validacion de que el archivo sea txt
 function showFile() {
   let fileType = file.type;
   let validExtensions = ["text/plain"];
   if (validExtensions.includes(fileType)) {
     dragText.textContent = "File uploaded successfully!";
-
-
   } else {
     alert("This is not an txt file");
     dropArea.classList.remove("active");
     dragText.textContent = "Drag & Drop to Upload File";
   }
 }
-
 
 function leerArchivo(e) {
   let fileType = file.type;
@@ -63,12 +58,10 @@ function leerArchivo(e) {
     }
     var lector = new FileReader();
     lector.onload = function (e) {
-      var contenido = e.target.result;
+      texto = e.target.result;
       let textArea = document.querySelector("#textArea");
-      textArea.innerHTML = contenido
+      textArea.innerHTML = texto;
     };
     lector.readAsText(archivo);
-
   }
-
 }
