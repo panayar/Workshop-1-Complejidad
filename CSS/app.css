@@ -11,9 +11,14 @@ body {
     background: #7E5DE5;
     background-repeat: no-repeat;
     overflow-x: hidden;
-    overflow-y: hidden;
     background: rgb(126,93,229);
     background: linear-gradient(90deg, rgba(126,93,229,1) 21%, rgba(74,31,207,1) 100%);
+}
+
+.pBg {
+  background-color: #5F38D8 !important;
+  border: 2px white solid !important;
+  color: white;
 }
 
 .title-app{

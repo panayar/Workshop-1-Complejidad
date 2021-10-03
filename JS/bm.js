@@ -2,14 +2,14 @@ const btnKMP = document.getElementById("btnBM");
 let word = document.getElementById("palabra");
 const resultado = document.getElementById("OutputTextArea");
 const separado =
-  "--------------------------------------------------------------------------------------------";
+  "-----------------------------------------------------------------------";
 
 btnKMP.onclick = () => {
     
   resultado.innerHTML =
     "El total de veces que se repite la palabra " +
     word.value +
-    " equivale a --> " +
+    " equivale a >> " +
     search(texto, word.value).length +
     "</br>" +
     separado +
