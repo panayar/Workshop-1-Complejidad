@@ -1,12 +1,26 @@
 const btnKMP = document.getElementById("btnKMP");
 let word = document.getElementById("palabra");
 const resultado = document.getElementById("OutputTextArea");
+const separado =
+  "--------------------------------------------------------------------------------------------";
+
 btnKMP.onclick = () => {
+
   resultado.innerHTML =
     "El total de veces que se repite la palabra " +
     word.value +
     " equivale a --> " +
-    kmpMatching(texto, word.value).length;
+    kmpMatching(texto, word.value).length +
+    "</br>" +
+    separado +
+    "</br>" +
+    "Texto: </br>" +
+    subrayar();
+    
+};
+
+const subrayar = () => {
+  return texto.replaceAll(word.value, "<mark>" + word.value + "</mark>");
 };
 
 // Construct a table with table[i] as the length of the longest prefix of the substring 0..i

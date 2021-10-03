@@ -1,12 +1,25 @@
 const btnKMP = document.getElementById("btnBM");
 let word = document.getElementById("palabra");
 const resultado = document.getElementById("OutputTextArea");
+const separado =
+  "--------------------------------------------------------------------------------------------";
+
 btnKMP.onclick = () => {
+    
   resultado.innerHTML =
     "El total de veces que se repite la palabra " +
     word.value +
     " equivale a --> " +
-    search(texto, word.value).length;
+    search(texto, word.value).length +
+    "</br>" +
+    separado +
+    "</br>" +
+    "Texto: </br>" +
+    subrayar();
+};
+
+const subrayar = () => {
+  return texto.replaceAll(word.value, "<mark>" + word.value + "</mark>");
 };
 
 /* Javascript Program for Bad Character Heuristic of Boyer
