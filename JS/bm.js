@@ -4,9 +4,9 @@ const resultado = document.getElementById("OutputTextArea");
 const separado =
   "-----------------------------------------------------------------------";
 
-btnKMP.onclick = () => {
+  btnKMP.onclick = () => {
     
-  resultado.innerHTML =
+    resultado.innerHTML =
     "El total de veces que se repite la palabra " +
     word.value +
     " equivale a >> " +
