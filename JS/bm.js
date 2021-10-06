@@ -1,26 +1,136 @@
-const btnKMP = document.getElementById("btnBM");
+const btnBM = document.getElementById("btnBM");
 let word = document.getElementById("palabra");
 const resultado = document.getElementById("OutputTextArea");
+const btnMayuscula = document.getElementById("btnMayuscula");
+const btnMinuscula = document.getElementById("btnMinuscula");
+const btnIndiscriminar = document.getElementById("btnIndiscriminar");
+
+let textInArea = document.querySelector("#textArea");
+let sizeOftext;
+
 const separado =
   "-----------------------------------------------------------------------";
 
-  btnKMP.onclick = () => {
-    
+
+const click = (palabra) => {
+  try {
     resultado.innerHTML =
-    "El total de veces que se repite la palabra " +
-    word.value +
-    " equivale a >> " +
-    search(texto, word.value).length +
-    "</br>" +
-    separado +
-    "</br>" +
-    "Texto: </br>" +
-    subrayar();
+      "El total de veces que se repite la palabra " +
+      palabra +
+      " equivale a >> " +
+      search(texto, palabra).length +
+      "</br>" +
+      separado +
+      "</br>" +
+      "Texto: </br>" +
+      subrayar(palabra);
+  } catch (Exception) {
+
+  }
+
+}
+
+btnBM.onclick = () => {
+  sizeOftext = textInArea.textContent;
+
+  if (sizeOftext.length == 0) {
+
+    alert("No ha subido ningun archivo")
+
+  } else if (word.textContent == "") {
+
+    alert("Ingrese la palabra a buscar")
+
+  } else {
+    click(word.value)
+  }
 };
 
-const subrayar = () => {
-  return texto.replaceAll(word.value, "<mark>" + word.value + "</mark>");
+btnMayuscula.onclick = () => {
+  sizeOftext = textInArea.textContent;
+
+  if (sizeOftext.length == 0) {
+
+    alert("No ha subido ningun archivo")
+
+  } else if (word.textContent == "") {
+
+    alert("Ingrese la palabra a buscar")
+
+  } else {
+    click(word.value.toUpperCase())
+  }
+}
+
+
+btnMinuscula.onclick = () => {
+
+  sizeOftext = textInArea.textContent;
+
+  if (sizeOftext.length == 0) {
+
+    alert("No ha subido ningun archivo")
+
+  } else if (word.textContent == "") {
+
+    alert("Ingrese la palabra a buscar")
+
+  } else {
+
+    click(word.value.toLowerCase())
+  }
+}
+
+
+
+btnIndiscriminar.onclick = () => {
+
+  sizeOftext = textInArea.textContent;
+
+  if (sizeOftext.length == 0) {
+
+    alert("No ha subido ningun archivo")
+
+  } else if (word.textContent == "") {
+
+    alert("Ingrese la palabra a buscar")
+
+  } else {
+    const arr = search(texto.toUpperCase(), word.value.toUpperCase());
+    const arr2 = []
+    let s = texto;
+    arr.forEach((i) => {
+      arr2.push(s.substring(i, (i + word.value.length)))
+    });
+    arr2.forEach((palabra) => {
+      s = subrayar2(s, palabra)
+    })
+
+    resultado.innerHTML =
+      "El total de veces que se repite la palabra " +
+      word.value +
+      " equivale a >> " +
+      arr.length +
+      "</br>" +
+      separado +
+      "</br>" +
+      "Texto: </br>" +
+      s;
+  }
+
 };
+
+
+
+const subrayar = (palabra) => {
+  return texto.replaceAll(palabra, "<mark>" + palabra + "</mark>");
+};
+
+
+const subrayar2 = (text, palabra) => {
+  return text.replaceAll(palabra, "<mark>" + palabra + "</mark>");
+};
+
 
 /* Javascript Program for Bad Character Heuristic of Boyer
 Moore String Matching Algorithm */

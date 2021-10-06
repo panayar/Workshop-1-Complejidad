@@ -9,6 +9,7 @@ button.onclick = () => {
   input.click();
 };
 
+
 //funciones del drop file
 input.addEventListener("change", function () {
   file = this.files[0];
@@ -42,7 +43,7 @@ function showFile() {
   if (validExtensions.includes(fileType)) {
     dragText.textContent = "File uploaded successfully!";
   } else {
-    alert("This is not an txt file");
+    alert("Este no es un archivo TXT");
     dropArea.classList.remove("active");
     dragText.textContent = "Drag & Drop to Upload File";
   }
@@ -65,3 +66,4 @@ function leerArchivo(e) {
     lector.readAsText(archivo);
   }
 }
+

@@ -1,26 +1,123 @@
 const btnKMP = document.getElementById("btnKMP");
+const btnMayuscula = document.getElementById("btnMayuscula");
+const btnMinuscula = document.getElementById("btnMinuscula");
+const btnIndiscriminar = document.getElementById("btnIndiscriminar");
 let word = document.getElementById("palabra");
 const resultado = document.getElementById("OutputTextArea");
 const separado =
   "-----------------------------------------------------------------------";
 
-btnKMP.onclick = () => {
-
+const click = (palabra) => {
   resultado.innerHTML =
     "El total de veces que se repite la palabra " +
-    word.value +
+    palabra +
     " equivale a >> " +
-    kmpMatching(texto, word.value).length +
+    kmpMatching(texto, palabra).length +
     "</br>" +
     separado +
     "</br>" +
     "Texto: </br>" +
-    subrayar();
-    
+    subrayar(palabra);
 };
 
-const subrayar = () => {
-  return texto.replaceAll(word.value, "<mark>" + word.value + "</mark>");
+btnKMP.onclick = () => {
+
+  if (sizeOftext.length == 0) {
+
+    alert("No ha subido ningun archivo")
+
+  } else if (word.textContent == "") {
+
+    alert("Ingrese la palabra a buscar")
+
+  } else {
+
+    click(word.value);
+
+  }
+
+
+};
+
+btnMayuscula.onclick = () => {
+  if (sizeOftext.length == 0) {
+
+    alert("No ha subido ningun archivo")
+
+  } else if (word.textContent == "") {
+
+    alert("Ingrese la palabra a buscar")
+
+  } else {
+
+    click(word.value.toUpperCase());
+
+  }
+
+
+};
+
+
+
+btnMinuscula.onclick = () => {
+
+  if (sizeOftext.length == 0) {
+
+    alert("No ha subido ningun archivo")
+
+  } else if (word.textContent == "") {
+
+    alert("Ingrese la palabra a buscar")
+
+  } else {
+
+    click(word.value.toLowerCase())
+  }
+
+};
+
+btnIndiscriminar.onclick = () => {
+
+  if (sizeOftext.length == 0) {
+
+    alert("No ha subido ningun archivo")
+
+  } else if (word.textContent == "") {
+
+    alert("Ingrese la palabra a buscar")
+
+  } else {
+
+    const arr = kmpMatching(texto.toUpperCase(), word.value.toUpperCase());
+    const arr2 = []
+    let s = texto;
+    arr.forEach((i) => {
+      arr2.push(s.substring(i, (i + word.value.length)))
+    });
+    arr2.forEach((palabra) => {
+      s = subrayar2(s, palabra)
+    })
+
+    resultado.innerHTML =
+      "El total de veces que se repite la palabra " +
+      word.value +
+      " equivale a >> " +
+      arr.length +
+      "</br>" +
+      separado +
+      "</br>" +
+      "Texto: </br>" +
+      s;
+
+  }
+
+
+};
+const subrayar = (palabra) => {
+  return texto.replaceAll(palabra, "<mark>" + palabra + "</mark>");
+};
+const subrayar2 = (text, palabra) => {
+  return text.replaceAll(palabra, "<mark>" + palabra + "</mark>");
 };
 
 // Construct a table with table[i] as the length of the longest prefix of the substring 0..i
