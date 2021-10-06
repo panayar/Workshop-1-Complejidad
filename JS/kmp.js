@@ -7,6 +7,9 @@ const resultado = document.getElementById("OutputTextArea");
 const separado =
   "-----------------------------------------------------------------------";
 
+let textInArea = document.querySelector("#textArea");
+let sizeOftext;
+
 const click = (palabra) => {
   resultado.innerHTML =
     "El total de veces que se repite la palabra " +
@@ -21,7 +24,7 @@ const click = (palabra) => {
 };
 
 btnKMP.onclick = () => {
-
+  sizeOftext = textInArea.textContent;
   if (sizeOftext.length == 0) {
 
     alert("No ha subido ningun archivo")
@@ -40,6 +43,7 @@ btnKMP.onclick = () => {
 };
 
 btnMayuscula.onclick = () => {
+  sizeOftext = textInArea.textContent;
   if (sizeOftext.length == 0) {
 
     alert("No ha subido ningun archivo")
@@ -60,7 +64,7 @@ btnMayuscula.onclick = () => {
 
 
 btnMinuscula.onclick = () => {
-
+  sizeOftext = textInArea.textContent;
   if (sizeOftext.length == 0) {
 
     alert("No ha subido ningun archivo")
@@ -77,7 +81,7 @@ btnMinuscula.onclick = () => {
 };
 
 btnIndiscriminar.onclick = () => {
-
+  sizeOftext = textInArea.textContent;
   if (sizeOftext.length == 0) {
 
     alert("No ha subido ningun archivo")
