@@ -85,8 +85,24 @@ body {
     font-family: 'M PLUS Rounded 1c', sans-serif;
     border: none;
 }
+.pinkButton2 {
+  background-color: #EE2D88;
+  width: 30%;
+  height: 45px;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  border: none;
+}
     
 .pinkButton:hover {
     background-color: #E2207C;
     transition: 0.8s;
+}
+.pinkButton2:hover {
+  background-color: #E2207C;
+  transition: 0.8s;
 }

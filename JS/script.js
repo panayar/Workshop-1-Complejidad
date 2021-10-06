@@ -9,6 +9,7 @@ button.onclick = () => {
   input.click();
 };
 
+
 //funciones del drop file
 input.addEventListener("change", function () {
   file = this.files[0];

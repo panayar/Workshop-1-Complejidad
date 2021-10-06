@@ -1,26 +1,64 @@
-const btnKMP = document.getElementById("btnBM");
+const btnBM = document.getElementById("btnBM");
 let word = document.getElementById("palabra");
 const resultado = document.getElementById("OutputTextArea");
+const btnMayuscula = document.getElementById("btnMayuscula");
+const btnMinuscula = document.getElementById("btnMinuscula");
+const btnIndiscriminar = document.getElementById("btnIndiscriminar");
 const separado =
   "-----------------------------------------------------------------------";
 
-btnKMP.onclick = () => {
-    
+const click = (palabra) => {
+  resultado.innerHTML =
+  "El total de veces que se repite la palabra " +
+  palabra +
+  " equivale a >> " +
+  search(texto, palabra).length +
+  "</br>" +
+  separado +
+  "</br>" +
+  "Texto: </br>" +
+  subrayar(palabra);
+}
+
+btnBM.onclick = () => {
+  click(word.value)
+};
+
+btnMayuscula.onclick = () => {
+  click(word.value.toUpperCase())
+}
+btnMinuscula.onclick = () => {
+  click(word.value.toLowerCase())
+}
+btnIndiscriminar.onclick = () => {
+  const arr = search(texto.toUpperCase(), word.value.toUpperCase());
+  const arr2 = []
+  let s = texto;
+  arr.forEach((i) => {
+   arr2.push(s.substring(i,(i+word.value.length)))
+  });
+  arr2.forEach((palabra) => {
+    s = subrayar2(s,palabra)
+  })
+
   resultado.innerHTML =
     "El total de veces que se repite la palabra " +
     word.value +
     " equivale a >> " +
-    search(texto, word.value).length +
+    arr.length +
     "</br>" +
     separado +
     "</br>" +
     "Texto: </br>" +
-    subrayar();
+    s;
+};
+const subrayar = (palabra) => {
+  return texto.replaceAll(palabra, "<mark>" + palabra + "</mark>");
+};
+const subrayar2 = (text,palabra) => {
+  return text.replaceAll(palabra, "<mark>" + palabra + "</mark>");
 };
 
-const subrayar = () => {
-  return texto.replaceAll(word.value, "<mark>" + word.value + "</mark>");
-};
 
 /* Javascript Program for Bad Character Heuristic of Boyer
 Moore String Matching Algorithm */
