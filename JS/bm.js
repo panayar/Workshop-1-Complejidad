@@ -37,10 +37,6 @@ btnBM.onclick = () => {
 
     alert("No ha subido ningun archivo")
 
-  } else if (word.textContent == "") {
-
-    alert("Ingrese la palabra a buscar")
-
   } else {
     click(word.value)
   }
@@ -52,10 +48,6 @@ btnMayuscula.onclick = () => {
   if (sizeOftext.length == 0) {
 
     alert("No ha subido ningun archivo")
-
-  } else if (word.textContent == "") {
-
-    alert("Ingrese la palabra a buscar")
 
   } else {
     click(word.value.toUpperCase())
@@ -71,11 +63,7 @@ btnMinuscula.onclick = () => {
 
     alert("No ha subido ningun archivo")
 
-  } else if (word.textContent == "") {
-
-    alert("Ingrese la palabra a buscar")
-
-  } else {
+  }else {
 
     click(word.value.toLowerCase())
   }
@@ -90,10 +78,6 @@ btnIndiscriminar.onclick = () => {
   if (sizeOftext.length == 0) {
 
     alert("No ha subido ningun archivo")
-
-  } else if (word.textContent == "") {
-
-    alert("Ingrese la palabra a buscar")
 
   } else {
     const arr = search(texto.toUpperCase(), word.value.toUpperCase());

@@ -29,11 +29,7 @@ btnKMP.onclick = () => {
 
     alert("No ha subido ningun archivo")
 
-  } else if (word.textContent == "") {
-
-    alert("Ingrese la palabra a buscar")
-
-  } else {
+  }else {
 
     click(word.value);
 
@@ -48,11 +44,7 @@ btnMayuscula.onclick = () => {
 
     alert("No ha subido ningun archivo")
 
-  } else if (word.textContent == "") {
-
-    alert("Ingrese la palabra a buscar")
-
-  } else {
+  }else {
 
     click(word.value.toUpperCase());
 
@@ -69,11 +61,7 @@ btnMinuscula.onclick = () => {
 
     alert("No ha subido ningun archivo")
 
-  } else if (word.textContent == "") {
-
-    alert("Ingrese la palabra a buscar")
-
-  } else {
+  }else {
 
     click(word.value.toLowerCase())
   }
@@ -86,11 +74,7 @@ btnIndiscriminar.onclick = () => {
 
     alert("No ha subido ningun archivo")
 
-  } else if (word.textContent == "") {
-
-    alert("Ingrese la palabra a buscar")
-
-  } else {
+  }else {
 
     const arr = kmpMatching(texto.toUpperCase(), word.value.toUpperCase());
     const arr2 = []
