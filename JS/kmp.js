@@ -10,6 +10,11 @@ const separado =
 let textInArea = document.querySelector("#textArea");
 let sizeOftext;
 
+/**
+ * 
+ * @param {*} palabra 
+ */
+
 const click = (palabra) => {
   resultado.innerHTML =
     "El total de veces que se repite la palabra " +
@@ -23,6 +28,9 @@ const click = (palabra) => {
     subrayar(palabra);
 };
 
+/**
+ * Function onclick to run function 
+ */
 btnKMP.onclick = () => {
   sizeOftext = textInArea.textContent;
   if (sizeOftext.length == 0) {
@@ -30,14 +38,14 @@ btnKMP.onclick = () => {
     alert("No ha subido ningun archivo")
 
   }else {
-
     click(word.value);
 
   }
-
-
 };
 
+/**
+ * Function onclick to run function 
+ */
 btnMayuscula.onclick = () => {
   sizeOftext = textInArea.textContent;
   if (sizeOftext.length == 0) {
@@ -53,6 +61,9 @@ btnMayuscula.onclick = () => {
 
 };
 
+/**
+ * Function onclick to run function 
+ */
 
 
 btnMinuscula.onclick = () => {
@@ -68,6 +79,9 @@ btnMinuscula.onclick = () => {
 
 };
 
+/**
+ * Function onclick to run function 
+ */
 btnIndiscriminar.onclick = () => {
   sizeOftext = textInArea.textContent;
   if (sizeOftext.length == 0) {
@@ -98,17 +112,34 @@ btnIndiscriminar.onclick = () => {
       s;
 
   }
-
-
 };
+
+/**
+ * 
+ * @param {*} palabra 
+ * @returns highlighted text 
+ */
 const subrayar = (palabra) => {
   return texto.replaceAll(palabra, "<mark>" + palabra + "</mark>");
 };
+
+/**
+ * 
+ * @param {*} text 
+ * @param {*} palabra 
+ * @returns highlighted text 
+ */
 const subrayar2 = (text, palabra) => {
   return text.replaceAll(palabra, "<mark>" + palabra + "</mark>");
 };
 
 // Construct a table with table[i] as the length of the longest prefix of the substring 0..i
+
+/**
+ * 
+ * @param {*} str 
+ * @returns table
+ */
 function longestPrefix(str) {
   // create a table of size equal to the length of `str`
   // table[i] will store the prefix of the longest prefix of the substring str[0..i]
@@ -143,6 +174,13 @@ function longestPrefix(str) {
 
 // Find all the patterns that matches in a given string `str`
 // this algorithm is based on the Knuth–Morris–Pratt algorithm. Its beauty consists in that it performs the matching in O(n)
+
+/**
+ * 
+ * @param {*} str 
+ * @param {*} pattern 
+ * @returns matches
+ */
 function kmpMatching(str, pattern) {
   // find the prefix table in O(n)
   var prefixes = longestPrefix(pattern);

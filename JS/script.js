@@ -5,38 +5,62 @@ const dropArea = document.querySelector(".drag-area"),
 let file;
 var text;
 
+/**
+ * onclick function 
+ */
 button.onclick = () => {
   input.click();
 };
 
 
-//funciones del drop file
+//Drop file functions
+
+/**
+ * listener function 
+ */
 input.addEventListener("change", function () {
   file = this.files[0];
   dropArea.classList.add("active");
   showFile();
 });
 
+/**
+ * listener function 
+ */
 dropArea.addEventListener("dragover", (event) => {
   event.preventDefault();
   dropArea.classList.add("active");
   dragText.textContent = "Release to Upload File";
 });
 
+/**
+ * listener function 
+ */
 dropArea.addEventListener("dragleave", () => {
   dropArea.classList.remove("active");
   dragText.textContent = "Drag & Drop to Upload File";
 });
 
+/**
+ * listener function 
+ */
 dropArea.addEventListener("drop", (event) => {
   event.preventDefault();
   file = event.dataTransfer.files[0];
   showFile();
 });
 
+/**
+ * listener function 
+ */
+
 input.addEventListener("change", leerArchivo);
 
-//Validacion de que el archivo sea txt
+//TXT file validation 
+
+/**
+ * function do not return any value
+ */
 function showFile() {
   let fileType = file.type;
   let validExtensions = ["text/plain"];
@@ -49,6 +73,11 @@ function showFile() {
   }
 }
 
+/**
+ * 
+ * @param {*} e 
+ * @returns text from TXT file 
+ */
 function leerArchivo(e) {
   let fileType = file.type;
   let validExtensions = ["text/plain"];

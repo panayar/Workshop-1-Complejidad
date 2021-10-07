@@ -12,6 +12,10 @@ const separado =
   "-----------------------------------------------------------------------";
 
 
+/**
+ * 
+ * @param {*} palabra 
+ */
 const click = (palabra) => {
   try {
     resultado.innerHTML =
@@ -30,6 +34,9 @@ const click = (palabra) => {
 
 }
 
+/**
+ * onClick function 
+ */
 btnBM.onclick = () => {
   sizeOftext = textInArea.textContent;
 
@@ -42,6 +49,9 @@ btnBM.onclick = () => {
   }
 };
 
+/**
+ * onClick function 
+ */
 btnMayuscula.onclick = () => {
   sizeOftext = textInArea.textContent;
 
@@ -54,7 +64,9 @@ btnMayuscula.onclick = () => {
   }
 }
 
-
+/**
+ * onClick function 
+ */
 btnMinuscula.onclick = () => {
 
   sizeOftext = textInArea.textContent;
@@ -70,7 +82,9 @@ btnMinuscula.onclick = () => {
 }
 
 
-
+/**
+ * onClick function 
+ */
 btnIndiscriminar.onclick = () => {
 
   sizeOftext = textInArea.textContent;
@@ -105,12 +119,21 @@ btnIndiscriminar.onclick = () => {
 };
 
 
-
+/**
+ * 
+ * @param {*} palabra 
+ * @returns highlighted text 
+ */
 const subrayar = (palabra) => {
   return texto.replaceAll(palabra, "<mark>" + palabra + "</mark>");
 };
 
-
+/**
+ * 
+ * @param {*} text 
+ * @param {*} palabra 
+ * @returns highlighted text 
+ */
 const subrayar2 = (text, palabra) => {
   return text.replaceAll(palabra, "<mark>" + palabra + "</mark>");
 };
@@ -121,12 +144,26 @@ Moore String Matching Algorithm */
 let NO_OF_CHARS = 256;
 
 // A utility function to get maximum of two integers
+
+/**
+ * 
+ * @param {*} a 
+ * @param {*} b 
+ * @returns max Value
+ */
 function max(a, b) {
   return a > b ? a : b;
 }
 
 // The preprocessing function for Boyer Moore's
 // bad character heuristic
+
+/**
+ * 
+ * @param {*} str 
+ * @param {*} size 
+ * @param {*} badchar 
+ */
 function badCharHeuristic(str, size, badchar) {
   // Initialize all occurrences as -1
   for (let i = 0; i < NO_OF_CHARS; i++) badchar[i] = -1;
@@ -138,6 +175,14 @@ function badCharHeuristic(str, size, badchar) {
 
 /* A pattern searching function that uses Bad
 	Character Heuristic of Boyer Moore Algorithm */
+
+
+/**
+ * 
+ * @param {*} txt 
+ * @param {*} pat 
+ * @returns all coincidences
+ */
 function search(txt, pat) {
   let m = pat.length;
   let n = txt.length;
